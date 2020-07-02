@@ -5,6 +5,10 @@ type ListGroupsResponse struct {
 	Groups map[string]string
 }
 
+func (r *ListGroupsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *ListGroupsResponse) encode(pe packetEncoder) error {
 	pe.putInt16(int16(r.Err))
 

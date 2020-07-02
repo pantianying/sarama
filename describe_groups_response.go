@@ -4,6 +4,10 @@ type DescribeGroupsResponse struct {
 	Groups []*GroupDescription
 }
 
+func (r *DescribeGroupsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *DescribeGroupsResponse) encode(pe packetEncoder) error {
 	if err := pe.putArrayLength(len(r.Groups)); err != nil {
 		return err

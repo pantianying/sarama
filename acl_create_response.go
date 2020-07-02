@@ -8,6 +8,10 @@ type CreateAclsResponse struct {
 	AclCreationResponses []*AclCreationResponse
 }
 
+func (c *CreateAclsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (c *CreateAclsResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(c.ThrottleTime / time.Millisecond))
 

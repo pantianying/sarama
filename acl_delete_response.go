@@ -9,6 +9,9 @@ type DeleteAclsResponse struct {
 	FilterResponses []*FilterResponse
 }
 
+func (d *DeleteAclsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
 func (d *DeleteAclsResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(d.ThrottleTime / time.Millisecond))
 

@@ -58,6 +58,10 @@ type OffsetFetchResponse struct {
 	Err            KError
 }
 
+func (r *OffsetFetchResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *OffsetFetchResponse) encode(pe packetEncoder) error {
 	if r.Version >= 3 {
 		pe.putInt32(r.ThrottleTimeMs)

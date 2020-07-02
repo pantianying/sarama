@@ -12,6 +12,9 @@ type DescribeLogDirsResponse struct {
 	LogDirs []DescribeLogDirsResponseDirMetadata
 }
 
+func (r *DescribeLogDirsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
 func (r *DescribeLogDirsResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(r.ThrottleTime / time.Millisecond))
 

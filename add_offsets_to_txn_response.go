@@ -10,6 +10,10 @@ type AddOffsetsToTxnResponse struct {
 	Err          KError
 }
 
+func (a *AddOffsetsToTxnResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (a *AddOffsetsToTxnResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(a.ThrottleTime / time.Millisecond))
 	pe.putInt16(int16(a.Err))

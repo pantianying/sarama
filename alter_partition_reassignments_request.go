@@ -26,6 +26,10 @@ type AlterPartitionReassignmentsRequest struct {
 	Version   int16
 }
 
+func (r *AlterPartitionReassignmentsRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *AlterPartitionReassignmentsRequest) encode(pe packetEncoder) error {
 	pe.putInt32(r.TimeoutMs)
 

@@ -35,6 +35,10 @@ type JoinGroupRequest struct {
 	OrderedGroupProtocols []*GroupProtocol
 }
 
+func (r *JoinGroupRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *JoinGroupRequest) encode(pe packetEncoder) error {
 	if err := pe.putString(r.GroupId); err != nil {
 		return err

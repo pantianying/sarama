@@ -6,6 +6,10 @@ type MetadataRequest struct {
 	AllowAutoTopicCreation bool
 }
 
+func (p *MetadataRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *MetadataRequest) encode(pe packetEncoder) error {
 	if r.Version < 0 || r.Version > 5 {
 		return PacketEncodingError{"invalid or unsupported MetadataRequest version field"}

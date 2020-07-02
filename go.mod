@@ -3,6 +3,7 @@ module github.com/Shopify/sarama
 go 1.13
 
 require (
+	code.cloudfoundry.org/bytefmt v0.0.0-20200131002437-cf55d5288a48 // indirect
 	github.com/Shopify/toxiproxy v2.1.4+incompatible
 	github.com/davecgh/go-spew v1.1.1
 	github.com/eapache/go-resiliency v1.2.0
@@ -12,14 +13,21 @@ require (
 	github.com/frankban/quicktest v1.10.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/google/go-cmp v0.4.1 // indirect
+	github.com/gorilla/mux v1.7.4 // indirect
 	github.com/hashicorp/go-uuid v1.0.2 // indirect
 	github.com/jcmturner/gofork v1.0.0
 	github.com/klauspost/compress v1.10.7
 	github.com/kr/text v0.2.0 // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
+	github.com/onsi/ginkgo v1.13.0 // indirect
+	github.com/pierrec/cmdflag v0.0.2 // indirect
 	github.com/pierrec/lz4 v2.5.2+incompatible
 	github.com/rcrowley/go-metrics v0.0.0-20200313005456-10cdbea86bc0
+	github.com/schollz/progressbar v1.0.0 // indirect
+	github.com/sirupsen/logrus v1.6.0 // indirect
+	github.com/stathat/go v1.0.0 // indirect
 	github.com/stretchr/testify v1.6.0
+	github.com/urfave/cli v1.22.4 // indirect
 	github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c
 	github.com/xdg/stringprep v1.0.0 // indirect
 	golang.org/x/crypto v0.0.0-20200510223506-06a226fb4e37 // indirect

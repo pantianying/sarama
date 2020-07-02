@@ -6,6 +6,10 @@ type AlterConfigsRequest struct {
 	ValidateOnly bool
 }
 
+func (a *AlterConfigsRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 //AlterConfigsResource is an alter config resource type
 type AlterConfigsResource struct {
 	Type          ConfigResourceType

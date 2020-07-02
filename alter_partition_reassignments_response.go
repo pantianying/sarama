@@ -37,6 +37,10 @@ type AlterPartitionReassignmentsResponse struct {
 	Errors         map[string]map[int32]*alterPartitionReassignmentsErrorBlock
 }
 
+func (r *AlterPartitionReassignmentsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *AlterPartitionReassignmentsResponse) AddError(topic string, partition int32, kerror KError, message *string) {
 	if r.Errors == nil {
 		r.Errors = make(map[string]map[int32]*alterPartitionReassignmentsErrorBlock)

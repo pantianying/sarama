@@ -11,6 +11,10 @@ type CreateTopicsResponse struct {
 	TopicErrors  map[string]*TopicError
 }
 
+func (c *CreateTopicsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (c *CreateTopicsResponse) encode(pe packetEncoder) error {
 	if c.Version >= 2 {
 		pe.putInt32(int32(c.ThrottleTime / time.Millisecond))

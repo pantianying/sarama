@@ -8,6 +8,10 @@ type AddOffsetsToTxnRequest struct {
 	GroupID         string
 }
 
+func (a *AddOffsetsToTxnRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (a *AddOffsetsToTxnRequest) encode(pe packetEncoder) error {
 	if err := pe.putString(a.TransactionalID); err != nil {
 		return err

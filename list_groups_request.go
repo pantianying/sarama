@@ -3,6 +3,10 @@ package sarama
 type ListGroupsRequest struct {
 }
 
+func (r *ListGroupsRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *ListGroupsRequest) encode(pe packetEncoder) error {
 	return nil
 }

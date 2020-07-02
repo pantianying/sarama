@@ -54,6 +54,10 @@ type OffsetResponse struct {
 	Blocks  map[string]map[int32]*OffsetResponseBlock
 }
 
+func (r *OffsetResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *OffsetResponse) decode(pd packetDecoder, version int16) (err error) {
 	numTopics, err := pd.getArrayLength()
 	if err != nil {

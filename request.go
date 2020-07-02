@@ -2,6 +2,7 @@ package sarama
 
 import (
 	"encoding/binary"
+	"errors"
 	"fmt"
 	"io"
 )
@@ -13,12 +14,21 @@ type protocolBody interface {
 	version() int16
 	headerVersion() int16
 	requiredVersion() KafkaVersion
+	changeTopic(brokerTopic, clientTopic string) error
 }
 
 type request struct {
 	correlationID int32
 	clientID      string
 	body          protocolBody
+}
+
+func NewRequest() *request {
+	return &request{}
+}
+
+func (r *request) Body() protocolBody {
+	return r.body
 }
 
 func (r *request) encode(pe packetEncoder) error {
@@ -68,7 +78,7 @@ func (r *request) decode(pd packetDecoder) (err error) {
 		return err
 	}
 
-	r.body = allocateBody(key, version)
+	r.body = AllocateBody(key, version)
 	if r.body == nil {
 		return PacketDecodingError{fmt.Sprintf("unknown request key (%d)", key)}
 	}
@@ -116,7 +126,42 @@ func decodeRequest(r io.Reader) (*request, int, error) {
 	return req, bytesRead, nil
 }
 
-func allocateBody(key, version int16) protocolBody {
+func DecodeRequest(data []byte) (*request, int, error) {
+	var (
+		bytesRead   int
+		lengthBytes = make([]byte, 4)
+	)
+
+	if len(data) < 4 {
+		return nil, 0, errors.New("err data:len(data) < 4")
+	}
+	lengthBytes = data[:len(lengthBytes)]
+	bytesRead += len(lengthBytes)
+	data = data[len(lengthBytes):]
+	length := int32(binary.BigEndian.Uint32(lengthBytes))
+
+	if length <= 4 || length > MaxRequestSize {
+		return nil, bytesRead, PacketDecodingError{fmt.Sprintf("message of length %d too large or too small", length)}
+	}
+
+	encodedReq := make([]byte, length)
+	encodedReq = data[:length]
+
+	bytesRead += len(encodedReq)
+
+	req := &request{}
+	if err := decode(encodedReq, req); err != nil {
+		return nil, bytesRead, err
+	}
+
+	return req, bytesRead, nil
+}
+
+func (r *request) ChangeTopic(brokerTopic, clientTopic string) {
+	r.body.changeTopic(brokerTopic, clientTopic)
+}
+
+func AllocateBody(key, version int16) protocolBody {
 	switch key {
 	case 0:
 		return &ProduceRequest{}

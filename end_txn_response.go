@@ -9,6 +9,9 @@ type EndTxnResponse struct {
 	Err          KError
 }
 
+func (e *EndTxnResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
 func (e *EndTxnResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(e.ThrottleTime / time.Millisecond))
 	pe.putInt16(int16(e.Err))

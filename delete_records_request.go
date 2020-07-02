@@ -17,6 +17,10 @@ type DeleteRecordsRequest struct {
 	Timeout time.Duration
 }
 
+func (d *DeleteRecordsRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (d *DeleteRecordsRequest) encode(pe packetEncoder) error {
 	if err := pe.putArrayLength(len(d.Topics)); err != nil {
 		return err

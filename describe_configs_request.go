@@ -6,6 +6,10 @@ type DescribeConfigsRequest struct {
 	IncludeSynonyms bool
 }
 
+func (r *DescribeConfigsRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 type ConfigResource struct {
 	Type        ConfigResourceType
 	Name        string

@@ -6,6 +6,10 @@ type HeartbeatRequest struct {
 	MemberId     string
 }
 
+func (r *HeartbeatRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *HeartbeatRequest) encode(pe packetEncoder) error {
 	if err := pe.putString(r.GroupId); err != nil {
 		return err

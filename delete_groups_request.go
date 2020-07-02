@@ -4,6 +4,10 @@ type DeleteGroupsRequest struct {
 	Groups []string
 }
 
+func (r *DeleteGroupsRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *DeleteGroupsRequest) encode(pe packetEncoder) error {
 	return pe.putStringArray(r.Groups)
 }

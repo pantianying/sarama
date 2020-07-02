@@ -85,6 +85,10 @@ type ProduceResponse struct {
 	ThrottleTime time.Duration // v1, throttle_time_ms
 }
 
+func (r *ProduceResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *ProduceResponse) decode(pd packetDecoder, version int16) (err error) {
 	r.Version = version
 

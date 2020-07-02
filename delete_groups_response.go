@@ -9,6 +9,10 @@ type DeleteGroupsResponse struct {
 	GroupErrorCodes map[string]KError
 }
 
+func (r *DeleteGroupsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *DeleteGroupsResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(r.ThrottleTime / time.Millisecond))
 

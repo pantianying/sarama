@@ -13,6 +13,10 @@ type FindCoordinatorRequest struct {
 	CoordinatorType CoordinatorType
 }
 
+func (f *FindCoordinatorRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (f *FindCoordinatorRequest) encode(pe packetEncoder) error {
 	if err := pe.putString(f.CoordinatorKey); err != nil {
 		return err

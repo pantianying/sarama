@@ -64,6 +64,9 @@ type ConfigSynonym struct {
 	Source      ConfigSource
 }
 
+func (r *DescribeConfigsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
 func (r *DescribeConfigsResponse) encode(pe packetEncoder) (err error) {
 	pe.putInt32(int32(r.ThrottleTime / time.Millisecond))
 	if err = pe.putArrayLength(len(r.Resources)); err != nil {

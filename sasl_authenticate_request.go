@@ -4,6 +4,10 @@ type SaslAuthenticateRequest struct {
 	SaslAuthBytes []byte
 }
 
+func (r *SaslAuthenticateRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 // APIKeySASLAuth is the API key for the SaslAuthenticate Kafka API
 const APIKeySASLAuth = 36
 

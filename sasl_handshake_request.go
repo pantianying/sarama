@@ -5,6 +5,10 @@ type SaslHandshakeRequest struct {
 	Version   int16
 }
 
+func (r *SaslHandshakeRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *SaslHandshakeRequest) encode(pe packetEncoder) error {
 	if err := pe.putString(r.Mechanism); err != nil {
 		return err

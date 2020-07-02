@@ -16,6 +16,10 @@ type AlterConfigsResourceResponse struct {
 	Name      string
 }
 
+func (a *AlterConfigsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (a *AlterConfigsResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(a.ThrottleTime / time.Millisecond))
 

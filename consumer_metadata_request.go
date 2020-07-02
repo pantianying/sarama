@@ -5,6 +5,10 @@ type ConsumerMetadataRequest struct {
 	ConsumerGroup string
 }
 
+func (r *ConsumerMetadataRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *ConsumerMetadataRequest) encode(pe packetEncoder) error {
 	tmp := new(FindCoordinatorRequest)
 	tmp.CoordinatorKey = r.ConsumerGroup

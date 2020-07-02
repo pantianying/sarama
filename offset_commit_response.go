@@ -6,6 +6,10 @@ type OffsetCommitResponse struct {
 	Errors         map[string]map[int32]KError
 }
 
+func (r *OffsetCommitResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *OffsetCommitResponse) AddError(topic string, partition int32, kerror KError) {
 	if r.Errors == nil {
 		r.Errors = make(map[string]map[int32]KError)

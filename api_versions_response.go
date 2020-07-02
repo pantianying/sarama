@@ -38,6 +38,10 @@ type ApiVersionsResponse struct {
 	ApiVersions []*ApiVersionsResponseBlock
 }
 
+func (r *ApiVersionsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *ApiVersionsResponse) encode(pe packetEncoder) error {
 	pe.putInt16(int16(r.Err))
 	if err := pe.putArrayLength(len(r.ApiVersions)); err != nil {

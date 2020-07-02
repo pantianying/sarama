@@ -8,6 +8,10 @@ type AddPartitionsToTxnRequest struct {
 	TopicPartitions map[string][]int32
 }
 
+func (a *AddPartitionsToTxnRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (a *AddPartitionsToTxnRequest) encode(pe packetEncoder) error {
 	if err := pe.putString(a.TransactionalID); err != nil {
 		return err

@@ -9,6 +9,10 @@ type TxnOffsetCommitResponse struct {
 	Topics       map[string][]*PartitionError
 }
 
+func (t *TxnOffsetCommitResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (t *TxnOffsetCommitResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(t.ThrottleTime / time.Millisecond))
 	if err := pe.putArrayLength(len(t.Topics)); err != nil {

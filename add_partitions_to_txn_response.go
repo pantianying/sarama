@@ -10,6 +10,9 @@ type AddPartitionsToTxnResponse struct {
 	Errors       map[string][]*PartitionError
 }
 
+func (a *AddPartitionsToTxnResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
 func (a *AddPartitionsToTxnResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(a.ThrottleTime / time.Millisecond))
 	if err := pe.putArrayLength(len(a.Errors)); err != nil {

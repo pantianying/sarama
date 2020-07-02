@@ -28,6 +28,17 @@ type ProduceRequest struct {
 	records         map[string]map[int32]Records
 }
 
+func (p *ProduceRequest) changeTopic(brokerTopic, clientTopic string) error {
+	for t, v := range p.records {
+		if t == clientTopic {
+			tmp := v
+			delete(p.records, t)
+			p.records[brokerTopic] = tmp
+		}
+	}
+	return nil
+}
+
 func updateMsgSetMetrics(msgSet *MessageSet, compressionRatioMetric metrics.Histogram,
 	topicCompressionRatioMetric metrics.Histogram) int64 {
 	var topicRecordCount int64

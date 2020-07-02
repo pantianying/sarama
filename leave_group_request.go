@@ -5,6 +5,10 @@ type LeaveGroupRequest struct {
 	MemberId string
 }
 
+func (r *LeaveGroupRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *LeaveGroupRequest) encode(pe packetEncoder) error {
 	if err := pe.putString(r.GroupId); err != nil {
 		return err

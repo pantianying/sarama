@@ -4,6 +4,10 @@ type HeartbeatResponse struct {
 	Err KError
 }
 
+func (r *HeartbeatResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *HeartbeatResponse) encode(pe packetEncoder) error {
 	pe.putInt16(int16(r.Err))
 	return nil

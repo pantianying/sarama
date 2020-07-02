@@ -10,6 +10,10 @@ type DescribeLogDirsRequest struct {
 	DescribeTopics []DescribeLogDirsRequestTopic
 }
 
+func (r *DescribeLogDirsRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 // DescribeLogDirsRequestTopic is a describe request about the log dir of one or more partitions within a Topic
 type DescribeLogDirsRequestTopic struct {
 	Topic        string

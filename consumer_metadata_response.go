@@ -14,6 +14,10 @@ type ConsumerMetadataResponse struct {
 	CoordinatorPort int32  // deprecated: use Coordinator.Addr()
 }
 
+func (r *ConsumerMetadataResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *ConsumerMetadataResponse) decode(pd packetDecoder, version int16) (err error) {
 	tmp := new(FindCoordinatorResponse)
 

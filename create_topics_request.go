@@ -12,6 +12,10 @@ type CreateTopicsRequest struct {
 	ValidateOnly bool
 }
 
+func (c *CreateTopicsRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (c *CreateTopicsRequest) encode(pe packetEncoder) error {
 	if err := pe.putArrayLength(len(c.TopicDetails)); err != nil {
 		return err

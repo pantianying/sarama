@@ -11,6 +11,10 @@ type JoinGroupResponse struct {
 	Members       map[string][]byte
 }
 
+func (r *JoinGroupResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *JoinGroupResponse) GetMembers() (map[string]ConsumerGroupMemberMetadata, error) {
 	members := make(map[string]ConsumerGroupMemberMetadata, len(r.Members))
 	for id, bin := range r.Members {

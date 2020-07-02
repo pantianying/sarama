@@ -11,6 +11,9 @@ type DescribeAclsResponse struct {
 	ResourceAcls []*ResourceAcls
 }
 
+func (d *DescribeAclsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
 func (d *DescribeAclsResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(d.ThrottleTime / time.Millisecond))
 	pe.putInt16(int16(d.Err))

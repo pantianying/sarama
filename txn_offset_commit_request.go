@@ -8,6 +8,10 @@ type TxnOffsetCommitRequest struct {
 	Topics          map[string][]*PartitionOffsetMetadata
 }
 
+func (t *TxnOffsetCommitRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (t *TxnOffsetCommitRequest) encode(pe packetEncoder) error {
 	if err := pe.putString(t.TransactionalID); err != nil {
 		return err

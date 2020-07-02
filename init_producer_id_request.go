@@ -7,6 +7,10 @@ type InitProducerIDRequest struct {
 	TransactionTimeout time.Duration
 }
 
+func (i *InitProducerIDRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (i *InitProducerIDRequest) encode(pe packetEncoder) error {
 	if err := pe.putNullableString(i.TransactionalID); err != nil {
 		return err

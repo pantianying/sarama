@@ -7,6 +7,10 @@ type SyncGroupRequest struct {
 	GroupAssignments map[string][]byte
 }
 
+func (r *SyncGroupRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *SyncGroupRequest) encode(pe packetEncoder) error {
 	if err := pe.putString(r.GroupId); err != nil {
 		return err

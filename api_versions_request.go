@@ -4,6 +4,10 @@ package sarama
 type ApiVersionsRequest struct {
 }
 
+func (a *ApiVersionsRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (a *ApiVersionsRequest) encode(pe packetEncoder) error {
 	return nil
 }

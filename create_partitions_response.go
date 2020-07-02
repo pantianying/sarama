@@ -10,6 +10,10 @@ type CreatePartitionsResponse struct {
 	TopicPartitionErrors map[string]*TopicPartitionError
 }
 
+func (c *CreatePartitionsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (c *CreatePartitionsResponse) encode(pe packetEncoder) error {
 	pe.putInt32(int32(c.ThrottleTime / time.Millisecond))
 	if err := pe.putArrayLength(len(c.TopicPartitionErrors)); err != nil {

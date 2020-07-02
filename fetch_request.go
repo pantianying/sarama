@@ -58,6 +58,17 @@ type FetchRequest struct {
 	RackID       string
 }
 
+func (r *FetchRequest) changeTopic(brokerTopic, clientTopic string) error {
+	for k, v := range r.blocks {
+		if k == clientTopic {
+			tmp := v
+			delete(r.blocks, k)
+			r.blocks[brokerTopic] = tmp
+		}
+	}
+	return nil
+}
+
 type IsolationLevel int8
 
 const (

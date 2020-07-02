@@ -8,6 +8,10 @@ type CreatePartitionsRequest struct {
 	ValidateOnly    bool
 }
 
+func (c *CreatePartitionsRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (c *CreatePartitionsRequest) encode(pe packetEncoder) error {
 	if err := pe.putArrayLength(len(c.TopicPartitions)); err != nil {
 		return err

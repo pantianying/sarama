@@ -33,6 +33,17 @@ type OffsetRequest struct {
 	blocks         map[string]map[int32]*offsetRequestBlock
 }
 
+func (r *OffsetRequest) changeTopic(brokerTopic, clientTopic string) error {
+	for k, v := range r.blocks {
+		if k == clientTopic {
+			tmp := v
+			delete(r.blocks, k)
+			r.blocks[brokerTopic] = tmp
+		}
+	}
+	return nil
+}
+
 func (r *OffsetRequest) encode(pe packetEncoder) error {
 	if r.isReplicaIDSet {
 		pe.putInt32(r.replicaID)

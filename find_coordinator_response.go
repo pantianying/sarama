@@ -14,6 +14,9 @@ type FindCoordinatorResponse struct {
 	Coordinator  *Broker
 }
 
+func (f *FindCoordinatorResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
 func (f *FindCoordinatorResponse) decode(pd packetDecoder, version int16) (err error) {
 	if version >= 1 {
 		f.Version = version

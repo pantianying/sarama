@@ -149,6 +149,10 @@ type MetadataResponse struct {
 	Topics         []*TopicMetadata
 }
 
+func (r *MetadataResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *MetadataResponse) decode(pd packetDecoder, version int16) (err error) {
 	r.Version = version
 

@@ -7,6 +7,10 @@ type EndTxnRequest struct {
 	TransactionResult bool
 }
 
+func (a *EndTxnRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (a *EndTxnRequest) encode(pe packetEncoder) error {
 	if err := pe.putString(a.TransactionalID); err != nil {
 		return err

@@ -50,6 +50,10 @@ type ListPartitionReassignmentsResponse struct {
 	TopicStatus    map[string]map[int32]*PartitionReplicaReassignmentsStatus
 }
 
+func (r *ListPartitionReassignmentsResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *ListPartitionReassignmentsResponse) AddBlock(topic string, partition int32, replicas, addingReplicas, removingReplicas []int32) {
 	if r.TopicStatus == nil {
 		r.TopicStatus = make(map[string]map[int32]*PartitionReplicaReassignmentsStatus)

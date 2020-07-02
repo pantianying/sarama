@@ -5,6 +5,10 @@ type SyncGroupResponse struct {
 	MemberAssignment []byte
 }
 
+func (r *SyncGroupResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *SyncGroupResponse) GetMemberAssignment() (*ConsumerGroupMemberAssignment, error) {
 	assignment := new(ConsumerGroupMemberAssignment)
 	err := decode(r.MemberAssignment, assignment)

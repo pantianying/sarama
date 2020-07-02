@@ -6,6 +6,10 @@ type OffsetFetchRequest struct {
 	partitions    map[string][]int32
 }
 
+func (p *OffsetFetchRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *OffsetFetchRequest) encode(pe packetEncoder) (err error) {
 	if r.Version < 0 || r.Version > 5 {
 		return PacketEncodingError{"invalid or unsupported OffsetFetchRequest version field"}

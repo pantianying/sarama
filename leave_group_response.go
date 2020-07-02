@@ -4,6 +4,10 @@ type LeaveGroupResponse struct {
 	Err KError
 }
 
+func (r *LeaveGroupResponse) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *LeaveGroupResponse) encode(pe packetEncoder) error {
 	pe.putInt16(int16(r.Err))
 	return nil

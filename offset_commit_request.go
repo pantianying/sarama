@@ -58,6 +58,10 @@ type OffsetCommitRequest struct {
 	blocks  map[string]map[int32]*offsetCommitRequestBlock
 }
 
+func (p *OffsetCommitRequest) changeTopic(brokerTopic, clientTopic string) error {
+	panic("impl me!")
+}
+
 func (r *OffsetCommitRequest) encode(pe packetEncoder) error {
 	if r.Version < 0 || r.Version > 4 {
 		return PacketEncodingError{"invalid or unsupported OffsetCommitRequest version field"}
