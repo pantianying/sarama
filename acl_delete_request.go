@@ -6,7 +6,7 @@ type DeleteAclsRequest struct {
 	Filters []*AclFilter
 }
 
-func (d *DeleteAclsRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (d *DeleteAclsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

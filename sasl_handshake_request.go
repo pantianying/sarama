@@ -5,7 +5,7 @@ type SaslHandshakeRequest struct {
 	Version   int16
 }
 
-func (r *SaslHandshakeRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (r *SaslHandshakeRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

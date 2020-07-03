@@ -29,7 +29,7 @@ var ErrNotConnected = errors.New("kafka: broker not connected")
 // ErrInsufficientData is returned when decoding and the packet is truncated. This can be expected
 // when requesting messages, since as an optimization the server is allowed to return a partial message at the end
 // of the message set.
-var ErrInsufficientData = errors.New("kafka: insufficient data to decode packet, more bytes expected")
+var ErrInsufficientData = errors.New("kafka: [pty] insufficient data to decode packet, more bytes expected")
 
 // ErrShuttingDown is returned when a producer receives a message during shutdown.
 var ErrShuttingDown = errors.New("kafka: message received by producer in process of shutting down")
@@ -39,7 +39,7 @@ var ErrMessageTooLarge = errors.New("kafka: message is larger than Consumer.Fetc
 
 // ErrConsumerOffsetNotAdvanced is returned when a partition consumer didn't advance its offset after parsing
 // a RecordBatch.
-var ErrConsumerOffsetNotAdvanced = errors.New("kafka: consumer offset was not advanced after a RecordBatch")
+var ErrConsumerOffsetNotAdvanced = errors.New("kafka: [pty] consumer offset was not advanced after a RecordBatch")
 
 // ErrControllerNotAvailable is returned when server didn't give correct controller id. May be kafka server's version
 // is lower than 0.10.0.0.

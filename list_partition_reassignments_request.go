@@ -6,7 +6,7 @@ type ListPartitionReassignmentsRequest struct {
 	Version   int16
 }
 
-func (r *ListPartitionReassignmentsRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (r *ListPartitionReassignmentsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

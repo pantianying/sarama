@@ -4,7 +4,7 @@ type SaslAuthenticateRequest struct {
 	SaslAuthBytes []byte
 }
 
-func (r *SaslAuthenticateRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (r *SaslAuthenticateRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

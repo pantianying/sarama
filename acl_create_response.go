@@ -8,7 +8,7 @@ type CreateAclsResponse struct {
 	AclCreationResponses []*AclCreationResponse
 }
 
-func (c *CreateAclsResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (c *CreateAclsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

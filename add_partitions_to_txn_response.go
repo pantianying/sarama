@@ -10,7 +10,7 @@ type AddPartitionsToTxnResponse struct {
 	Errors       map[string][]*PartitionError
 }
 
-func (a *AddPartitionsToTxnResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (a *AddPartitionsToTxnResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 func (a *AddPartitionsToTxnResponse) encode(pe packetEncoder) error {

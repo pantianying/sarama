@@ -11,7 +11,7 @@ type CreateTopicsResponse struct {
 	TopicErrors  map[string]*TopicError
 }
 
-func (c *CreateTopicsResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (c *CreateTopicsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

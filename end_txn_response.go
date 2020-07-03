@@ -9,7 +9,7 @@ type EndTxnResponse struct {
 	Err          KError
 }
 
-func (e *EndTxnResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (e *EndTxnResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 func (e *EndTxnResponse) encode(pe packetEncoder) error {

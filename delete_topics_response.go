@@ -8,7 +8,7 @@ type DeleteTopicsResponse struct {
 	TopicErrorCodes map[string]KError
 }
 
-func (d *DeleteTopicsResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (d *DeleteTopicsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

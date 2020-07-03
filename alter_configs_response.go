@@ -16,7 +16,7 @@ type AlterConfigsResourceResponse struct {
 	Name      string
 }
 
-func (a *AlterConfigsResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (a *AlterConfigsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

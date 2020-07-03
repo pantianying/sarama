@@ -10,7 +10,7 @@ type CreatePartitionsResponse struct {
 	TopicPartitionErrors map[string]*TopicPartitionError
 }
 
-func (c *CreatePartitionsResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (c *CreatePartitionsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

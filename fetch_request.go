@@ -58,7 +58,7 @@ type FetchRequest struct {
 	RackID       string
 }
 
-func (r *FetchRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (r *FetchRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	for k, v := range r.blocks {
 		if k == clientTopic {
 			tmp := v

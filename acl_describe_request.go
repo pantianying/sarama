@@ -6,7 +6,7 @@ type DescribeAclsRequest struct {
 	AclFilter
 }
 
-func (d *DescribeAclsRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (d *DescribeAclsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

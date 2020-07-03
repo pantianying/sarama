@@ -6,7 +6,7 @@ type DescribeConfigsRequest struct {
 	IncludeSynonyms bool
 }
 
-func (r *DescribeConfigsRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (r *DescribeConfigsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

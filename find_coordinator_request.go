@@ -13,7 +13,7 @@ type FindCoordinatorRequest struct {
 	CoordinatorType CoordinatorType
 }
 
-func (f *FindCoordinatorRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (f *FindCoordinatorRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

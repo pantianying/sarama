@@ -54,7 +54,7 @@ type OffsetResponse struct {
 	Blocks  map[string]map[int32]*OffsetResponseBlock
 }
 
-func (r *OffsetResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (r *OffsetResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

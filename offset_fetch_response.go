@@ -58,7 +58,7 @@ type OffsetFetchResponse struct {
 	Err            KError
 }
 
-func (r *OffsetFetchResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (r *OffsetFetchResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

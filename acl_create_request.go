@@ -6,7 +6,7 @@ type CreateAclsRequest struct {
 	AclCreations []*AclCreation
 }
 
-func (c *CreateAclsRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (c *CreateAclsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

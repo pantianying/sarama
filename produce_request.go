@@ -1,6 +1,9 @@
 package sarama
 
-import "github.com/rcrowley/go-metrics"
+import (
+	"fmt"
+	"github.com/rcrowley/go-metrics"
+)
 
 // RequiredAcks is used in Produce Requests to tell the broker how many replica acknowledgements
 // it must see before responding. Any of the constants defined here are valid. On broker versions
@@ -28,12 +31,57 @@ type ProduceRequest struct {
 	records         map[string]map[int32]Records
 }
 
-func (p *ProduceRequest) changeTopic(brokerTopic, clientTopic string) error {
-	for t, v := range p.records {
-		if t == clientTopic {
-			tmp := v
-			delete(p.records, t)
-			p.records[brokerTopic] = tmp
+func (p *ProduceRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+	for topic, v := range p.records {
+		if topic == clientTopic {
+			for partition, records := range v {
+				switch records.recordsType {
+				case legacyRecords:
+					for mi, msg := range records.MsgSet.Messages {
+						if rule.CheckIsReplaceTopic(msg.Msg.Key, msg.Msg.Value) {
+							// 这条消息需要替换topic
+							// 删掉
+							records.MsgSet.Messages = append(records.MsgSet.Messages[:mi], records.MsgSet.Messages[mi+1:]...)
+							// 增加
+							if len(p.records) == 0 {
+								p.records = make(map[string]map[int32]Records)
+							}
+							if _, ok := p.records[brokerTopic]; !ok {
+								p.records[brokerTopic] = make(map[int32]Records)
+							}
+							if _, ok := p.records[brokerTopic][partition]; !ok {
+								// 初始化records,把原来的copy一份，并且把message置空
+								records.MsgSet.Messages = make([]*MessageBlock, 0)
+								p.records[brokerTopic][partition] = records
+							}
+							p.records[brokerTopic][partition].MsgSet.Messages = append(p.records[brokerTopic][partition].MsgSet.Messages, msg)
+						}
+					}
+				case defaultRecords:
+					for mi, rsd := range records.RecordBatch.Records {
+						if rule.CheckIsReplaceTopic(rsd.Key, rsd.Value) {
+							// 这条消息需要替换topic
+							// 删掉
+							records.RecordBatch.Records = append(records.RecordBatch.Records[:mi], records.RecordBatch.Records[mi+1:]...)
+							// 增加
+							if len(p.records) == 0 {
+								p.records = make(map[string]map[int32]Records)
+							}
+							if _, ok := p.records[brokerTopic]; !ok {
+								p.records[brokerTopic] = make(map[int32]Records)
+							}
+							if _, ok := p.records[brokerTopic][partition]; !ok {
+								// 初始化records,把原来的copy一份，并且把message置空
+								records.RecordBatch.Records = make([]*Record, 0)
+								p.records[brokerTopic][partition] = records
+							}
+							p.records[brokerTopic][partition].RecordBatch.Records = append(p.records[brokerTopic][partition].RecordBatch.Records, rsd)
+						}
+					}
+				default:
+					fmt.Println("un support recordsType", records.recordsType)
+				}
+			}
 		}
 	}
 	return nil

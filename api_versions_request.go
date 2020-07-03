@@ -4,7 +4,7 @@ package sarama
 type ApiVersionsRequest struct {
 }
 
-func (a *ApiVersionsRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (a *ApiVersionsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

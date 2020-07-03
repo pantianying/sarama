@@ -4,7 +4,7 @@ type LeaveGroupResponse struct {
 	Err KError
 }
 
-func (r *LeaveGroupResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (r *LeaveGroupResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

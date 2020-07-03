@@ -231,7 +231,7 @@ type FetchResponse struct {
 	Timestamp     time.Time
 }
 
-func (r *FetchResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (r *FetchResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

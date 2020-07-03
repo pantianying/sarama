@@ -4,7 +4,7 @@ type DescribeGroupsResponse struct {
 	Groups []*GroupDescription
 }
 
-func (r *DescribeGroupsResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (r *DescribeGroupsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

@@ -6,7 +6,7 @@ type OffsetCommitResponse struct {
 	Errors         map[string]map[int32]KError
 }
 
-func (r *OffsetCommitResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (r *OffsetCommitResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

@@ -7,7 +7,7 @@ type EndTxnRequest struct {
 	TransactionResult bool
 }
 
-func (a *EndTxnRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (a *EndTxnRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

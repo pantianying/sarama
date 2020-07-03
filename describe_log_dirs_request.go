@@ -10,7 +10,7 @@ type DescribeLogDirsRequest struct {
 	DescribeTopics []DescribeLogDirsRequestTopic
 }
 
-func (r *DescribeLogDirsRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (r *DescribeLogDirsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

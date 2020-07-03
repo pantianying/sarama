@@ -37,7 +37,7 @@ type AlterPartitionReassignmentsResponse struct {
 	Errors         map[string]map[int32]*alterPartitionReassignmentsErrorBlock
 }
 
-func (r *AlterPartitionReassignmentsResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (r *AlterPartitionReassignmentsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

@@ -5,7 +5,7 @@ type SyncGroupResponse struct {
 	MemberAssignment []byte
 }
 
-func (r *SyncGroupResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (r *SyncGroupResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

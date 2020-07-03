@@ -18,7 +18,7 @@ type DeleteRecordsResponse struct {
 	Topics       map[string]*DeleteRecordsResponseTopic
 }
 
-func (d *DeleteRecordsResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (d *DeleteRecordsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

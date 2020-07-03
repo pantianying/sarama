@@ -8,7 +8,7 @@ type AddOffsetsToTxnRequest struct {
 	GroupID         string
 }
 
-func (a *AddOffsetsToTxnRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (a *AddOffsetsToTxnRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

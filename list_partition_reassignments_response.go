@@ -50,7 +50,7 @@ type ListPartitionReassignmentsResponse struct {
 	TopicStatus    map[string]map[int32]*PartitionReplicaReassignmentsStatus
 }
 
-func (r *ListPartitionReassignmentsResponse) changeTopic(brokerTopic, clientTopic string) error {
+func (r *ListPartitionReassignmentsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 

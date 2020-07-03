@@ -6,7 +6,7 @@ type OffsetFetchRequest struct {
 	partitions    map[string][]int32
 }
 
-func (p *OffsetFetchRequest) changeTopic(brokerTopic, clientTopic string) error {
+func (p *OffsetFetchRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
 	panic("impl me!")
 }
 
