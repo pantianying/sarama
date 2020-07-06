@@ -3,7 +3,7 @@ package sarama
 type ListGroupsRequest struct {
 }
 
-func (r *ListGroupsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *ListGroupsRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

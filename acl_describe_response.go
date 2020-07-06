@@ -11,7 +11,7 @@ type DescribeAclsResponse struct {
 	ResourceAcls []*ResourceAcls
 }
 
-func (d *DescribeAclsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (d *DescribeAclsResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 func (d *DescribeAclsResponse) encode(pe packetEncoder) error {

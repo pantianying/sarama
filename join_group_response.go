@@ -11,7 +11,7 @@ type JoinGroupResponse struct {
 	Members       map[string][]byte
 }
 
-func (r *JoinGroupResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *JoinGroupResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

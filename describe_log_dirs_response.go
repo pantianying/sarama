@@ -12,7 +12,7 @@ type DescribeLogDirsResponse struct {
 	LogDirs []DescribeLogDirsResponseDirMetadata
 }
 
-func (r *DescribeLogDirsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *DescribeLogDirsResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 func (r *DescribeLogDirsResponse) encode(pe packetEncoder) error {

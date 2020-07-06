@@ -6,7 +6,7 @@ type AlterConfigsRequest struct {
 	ValidateOnly bool
 }
 
-func (a *AlterConfigsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (a *AlterConfigsRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

@@ -8,7 +8,7 @@ type DeleteTopicsRequest struct {
 	Timeout time.Duration
 }
 
-func (d *DeleteTopicsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (d *DeleteTopicsRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

@@ -14,7 +14,7 @@ type protocolBody interface {
 	version() int16
 	headerVersion() int16
 	requiredVersion() KafkaVersion
-	changeTopic(brokerTopic, clientTopic string, rule TopicRule) error
+	changeTopic(rule TopicRule) error
 }
 
 type request struct {
@@ -157,8 +157,8 @@ func DecodeRequest(data []byte) (*request, int, error) {
 	return req, bytesRead, nil
 }
 
-func (r *request) ChangeTopic(brokerTopic, clientTopic string, rule TopicRule) {
-	r.body.changeTopic(brokerTopic, clientTopic, rule)
+func (r *request) ChangeTopic(rule TopicRule) {
+	r.body.changeTopic(rule)
 }
 
 func AllocateBody(key, version int16) protocolBody {

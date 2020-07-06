@@ -6,7 +6,7 @@ type HeartbeatRequest struct {
 	MemberId     string
 }
 
-func (r *HeartbeatRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *HeartbeatRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

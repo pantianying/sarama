@@ -58,7 +58,7 @@ type OffsetCommitRequest struct {
 	blocks  map[string]map[int32]*offsetCommitRequestBlock
 }
 
-func (p *OffsetCommitRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (p *OffsetCommitRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

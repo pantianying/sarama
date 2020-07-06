@@ -14,7 +14,7 @@ type FindCoordinatorResponse struct {
 	Coordinator  *Broker
 }
 
-func (f *FindCoordinatorResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (f *FindCoordinatorResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 func (f *FindCoordinatorResponse) decode(pd packetDecoder, version int16) (err error) {

@@ -38,7 +38,7 @@ type ApiVersionsResponse struct {
 	ApiVersions []*ApiVersionsResponseBlock
 }
 
-func (r *ApiVersionsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *ApiVersionsResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

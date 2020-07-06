@@ -31,15 +31,18 @@ type ProduceRequest struct {
 	records         map[string]map[int32]Records
 }
 
-func (p *ProduceRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (p *ProduceRequest) changeTopic(rule TopicRule) error {
 	for topic, v := range p.records {
-		if topic == clientTopic {
+		if rule.CheckClientTopicIsRule(topic) {
+			ctRule := rule.GetClientTopicRule(topic)
 			for partition, records := range v {
 				switch records.recordsType {
 				case legacyRecords:
 					for mi, msg := range records.MsgSet.Messages {
-						if rule.CheckIsReplaceTopic(msg.Msg.Key, msg.Msg.Value) {
+
+						if is, k := ctRule.CheckIsReplaceTopic(msg.Msg.Key, msg.Msg.Value); is {
 							// 这条消息需要替换topic
+							brokerTopic := ctRule.BrokerTopic(k)
 							// 删掉
 							records.MsgSet.Messages = append(records.MsgSet.Messages[:mi], records.MsgSet.Messages[mi+1:]...)
 							// 增加
@@ -59,8 +62,10 @@ func (p *ProduceRequest) changeTopic(brokerTopic, clientTopic string, rule Topic
 					}
 				case defaultRecords:
 					for mi, rsd := range records.RecordBatch.Records {
-						if rule.CheckIsReplaceTopic(rsd.Key, rsd.Value) {
+
+						if is, k := ctRule.CheckIsReplaceTopic(rsd.Key, rsd.Value); is {
 							// 这条消息需要替换topic
+							brokerTopic := ctRule.BrokerTopic(k)
 							// 删掉
 							records.RecordBatch.Records = append(records.RecordBatch.Records[:mi], records.RecordBatch.Records[mi+1:]...)
 							// 增加

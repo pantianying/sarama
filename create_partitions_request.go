@@ -8,7 +8,7 @@ type CreatePartitionsRequest struct {
 	ValidateOnly    bool
 }
 
-func (c *CreatePartitionsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (c *CreatePartitionsRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

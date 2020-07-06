@@ -85,15 +85,14 @@ type ProduceResponse struct {
 	ThrottleTime time.Duration // v1, throttle_time_ms
 }
 
-func (r *ProduceResponse) ChangeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
-	return r.changeTopic(brokerTopic, clientTopic, rule)
+func (r *ProduceResponse) ChangeTopic(rule TopicRule) error {
+	return r.changeTopic(rule)
 }
 
-func (r *ProduceResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *ProduceResponse) changeTopic(rule TopicRule) error {
 	for k, v := range r.Blocks {
-		if k == brokerTopic {
-			delete(r.Blocks, brokerTopic)
-
+		if clientTopic := rule.GetClientTopicByResponseTopic(k); clientTopic != "" {
+			delete(r.Blocks, k)
 			r.Blocks[clientTopic] = v
 		}
 	}

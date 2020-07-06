@@ -8,7 +8,7 @@ type TxnOffsetCommitRequest struct {
 	Topics          map[string][]*PartitionOffsetMetadata
 }
 
-func (t *TxnOffsetCommitRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (t *TxnOffsetCommitRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

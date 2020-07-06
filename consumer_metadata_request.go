@@ -5,7 +5,7 @@ type ConsumerMetadataRequest struct {
 	ConsumerGroup string
 }
 
-func (r *ConsumerMetadataRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *ConsumerMetadataRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

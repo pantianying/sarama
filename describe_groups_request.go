@@ -4,7 +4,7 @@ type DescribeGroupsRequest struct {
 	Groups []string
 }
 
-func (r *DescribeGroupsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *DescribeGroupsRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

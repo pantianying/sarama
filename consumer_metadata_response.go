@@ -14,7 +14,7 @@ type ConsumerMetadataResponse struct {
 	CoordinatorPort int32  // deprecated: use Coordinator.Addr()
 }
 
-func (r *ConsumerMetadataResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *ConsumerMetadataResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

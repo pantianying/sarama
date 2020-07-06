@@ -12,7 +12,7 @@ type CreateTopicsRequest struct {
 	ValidateOnly bool
 }
 
-func (c *CreateTopicsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (c *CreateTopicsRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

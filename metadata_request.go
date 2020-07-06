@@ -6,12 +6,8 @@ type MetadataRequest struct {
 	AllowAutoTopicCreation bool
 }
 
-func (p *MetadataRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
-	for i, v := range p.Topics {
-		if v == clientTopic {
-			p.Topics[i] = brokerTopic
-		}
-	}
+func (p *MetadataRequest) changeTopic(rule TopicRule) error {
+	panic("impl me!")
 	return nil
 }
 

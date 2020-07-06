@@ -35,7 +35,7 @@ type JoinGroupRequest struct {
 	OrderedGroupProtocols []*GroupProtocol
 }
 
-func (r *JoinGroupRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *JoinGroupRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

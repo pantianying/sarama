@@ -8,7 +8,7 @@ type AddPartitionsToTxnRequest struct {
 	TopicPartitions map[string][]int32
 }
 
-func (a *AddPartitionsToTxnRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (a *AddPartitionsToTxnRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

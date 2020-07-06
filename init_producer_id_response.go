@@ -9,7 +9,7 @@ type InitProducerIDResponse struct {
 	ProducerEpoch int16
 }
 
-func (i *InitProducerIDResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (i *InitProducerIDResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

@@ -4,7 +4,7 @@ type HeartbeatResponse struct {
 	Err KError
 }
 
-func (r *HeartbeatResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *HeartbeatResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

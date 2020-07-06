@@ -10,7 +10,7 @@ type AddOffsetsToTxnResponse struct {
 	Err          KError
 }
 
-func (a *AddOffsetsToTxnResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (a *AddOffsetsToTxnResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

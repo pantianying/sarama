@@ -5,7 +5,7 @@ type ListGroupsResponse struct {
 	Groups map[string]string
 }
 
-func (r *ListGroupsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *ListGroupsResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

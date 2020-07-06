@@ -58,12 +58,11 @@ type FetchRequest struct {
 	RackID       string
 }
 
-func (r *FetchRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *FetchRequest) changeTopic(rule TopicRule) error {
 	for k, v := range r.blocks {
-		if k == clientTopic {
-			tmp := v
+		if clientTopic := rule.GetClientTopicByResponseTopic(k); clientTopic != "" {
 			delete(r.blocks, k)
-			r.blocks[brokerTopic] = tmp
+			r.blocks[clientTopic] = v
 		}
 	}
 	return nil

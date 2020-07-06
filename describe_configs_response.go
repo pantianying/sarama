@@ -64,7 +64,7 @@ type ConfigSynonym struct {
 	Source      ConfigSource
 }
 
-func (r *DescribeConfigsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *DescribeConfigsResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 func (r *DescribeConfigsResponse) encode(pe packetEncoder) (err error) {

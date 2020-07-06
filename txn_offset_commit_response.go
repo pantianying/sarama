@@ -9,7 +9,7 @@ type TxnOffsetCommitResponse struct {
 	Topics       map[string][]*PartitionError
 }
 
-func (t *TxnOffsetCommitResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (t *TxnOffsetCommitResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

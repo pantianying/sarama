@@ -33,14 +33,8 @@ type OffsetRequest struct {
 	blocks         map[string]map[int32]*offsetRequestBlock
 }
 
-func (r *OffsetRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
-	for k, v := range r.blocks {
-		if k == clientTopic {
-			tmp := v
-			delete(r.blocks, k)
-			r.blocks[brokerTopic] = tmp
-		}
-	}
+func (r *OffsetRequest) changeTopic(rule TopicRule) error {
+	panic("impl me!")
 	return nil
 }
 

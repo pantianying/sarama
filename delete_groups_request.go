@@ -4,7 +4,7 @@ type DeleteGroupsRequest struct {
 	Groups []string
 }
 
-func (r *DeleteGroupsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *DeleteGroupsRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

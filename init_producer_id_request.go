@@ -7,7 +7,7 @@ type InitProducerIDRequest struct {
 	TransactionTimeout time.Duration
 }
 
-func (i *InitProducerIDRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (i *InitProducerIDRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

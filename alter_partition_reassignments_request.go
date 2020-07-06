@@ -26,7 +26,7 @@ type AlterPartitionReassignmentsRequest struct {
 	Version   int16
 }
 
-func (r *AlterPartitionReassignmentsRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *AlterPartitionReassignmentsRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 

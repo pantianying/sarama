@@ -9,7 +9,7 @@ type DeleteAclsResponse struct {
 	FilterResponses []*FilterResponse
 }
 
-func (d *DeleteAclsResponse) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (d *DeleteAclsResponse) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 func (d *DeleteAclsResponse) encode(pe packetEncoder) error {

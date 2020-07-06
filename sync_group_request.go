@@ -7,7 +7,7 @@ type SyncGroupRequest struct {
 	GroupAssignments map[string][]byte
 }
 
-func (r *SyncGroupRequest) changeTopic(brokerTopic, clientTopic string, rule TopicRule) error {
+func (r *SyncGroupRequest) changeTopic(rule TopicRule) error {
 	panic("impl me!")
 }
 
