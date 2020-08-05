@@ -43,12 +43,15 @@ func (p *ProduceRequest) changeTopic(rule TopicRule) error {
 						if is, k := ctRule.CheckIsReplaceTopic(msg.Msg.Key, msg.Msg.Value); is {
 							// 这条消息需要替换topic
 							brokerTopic := ctRule.BrokerTopic(k)
-							// 删掉
-							records.MsgSet.Messages = append(records.MsgSet.Messages[:mi], records.MsgSet.Messages[mi+1:]...)
-							// 增加
-							if len(p.records) == 0 {
-								p.records = make(map[string]map[int32]Records)
+							// 删掉 如果这个topic只有一条消息就全删了
+							p.records[topic][partition].MsgSet.Messages = append(records.MsgSet.Messages[:mi], records.MsgSet.Messages[mi+1:]...)
+							if len(p.records[topic][partition].MsgSet.Messages) == 0 {
+								delete(p.records[topic], partition)
+								if len(p.records[topic]) == 0 {
+									delete(p.records, topic)
+								}
 							}
+							// 增加
 							if _, ok := p.records[brokerTopic]; !ok {
 								p.records[brokerTopic] = make(map[int32]Records)
 							}
@@ -58,6 +61,8 @@ func (p *ProduceRequest) changeTopic(rule TopicRule) error {
 								p.records[brokerTopic][partition] = records
 							}
 							p.records[brokerTopic][partition].MsgSet.Messages = append(p.records[brokerTopic][partition].MsgSet.Messages, msg)
+							// todo 目前只处理了一条 这个地方应该是continue
+							return nil
 						}
 					}
 				case defaultRecords:
@@ -67,10 +72,12 @@ func (p *ProduceRequest) changeTopic(rule TopicRule) error {
 							// 这条消息需要替换topic
 							brokerTopic := ctRule.BrokerTopic(k)
 							// 删掉
-							records.RecordBatch.Records = append(records.RecordBatch.Records[:mi], records.RecordBatch.Records[mi+1:]...)
-							// 增加
-							if len(p.records) == 0 {
-								p.records = make(map[string]map[int32]Records)
+							p.records[topic][partition].RecordBatch.Records = append(records.RecordBatch.Records[:mi], records.RecordBatch.Records[mi+1:]...)
+							if len(p.records[topic][partition].MsgSet.Messages) == 0 {
+								delete(p.records[topic], partition)
+								if len(p.records[topic]) == 0 {
+									delete(p.records, topic)
+								}
 							}
 							if _, ok := p.records[brokerTopic]; !ok {
 								p.records[brokerTopic] = make(map[int32]Records)
@@ -81,6 +88,7 @@ func (p *ProduceRequest) changeTopic(rule TopicRule) error {
 								p.records[brokerTopic][partition] = records
 							}
 							p.records[brokerTopic][partition].RecordBatch.Records = append(p.records[brokerTopic][partition].RecordBatch.Records, rsd)
+							return nil
 						}
 					}
 				default:
